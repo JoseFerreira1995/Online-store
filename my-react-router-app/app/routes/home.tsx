@@ -1,6 +1,8 @@
 import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
-import { Link } from "react-router";
+import { Link, useLoaderData } from "react-router";
+import { getProducts } from "~/data/products";
+import Header from "~/components/header";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -10,9 +12,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return (
-    <main className="p-8">
-      <h1 className="text-2xl font-bold mb-4">The Online Store</h1>
-    </main>
-  );
+  return <Header />;
 }
