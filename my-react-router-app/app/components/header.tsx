@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router";
 
 export default function Header() {
   return (
-    <header className="border-b">
+    <header className="border-b sticky top-0 z-50 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         <Link to="/" className="text-xl font-bold tracking-wide uppercase">
           THE ONLINE STORE
