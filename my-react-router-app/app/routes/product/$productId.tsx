@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router";
 import { getProductsById } from "~/data/products";
 
 export async function loader({ params }: any) {
+  console.log("Here the data", params);
   return getProductsById(params.productId);
 }
 
