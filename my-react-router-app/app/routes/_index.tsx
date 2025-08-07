@@ -1,9 +1,8 @@
-import type { Route } from "./+types/home";
 import { Link } from "react-router";
 import { motion } from "framer-motion";
 import Button from "@mui/joy/Button";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({}) {
   return [
     { title: "New React Router App" },
     { name: "description", content: "Welcome to React Router!" },

@@ -24,12 +24,6 @@ export default function Header() {
           <NavLink to="/about" className="hover:text-blue-600">
             About
           </NavLink>
-          <NavLink to="/contact" className="hover:text-blue-600">
-            Contact
-          </NavLink>
-          <NavLink to="/blog" className="hover:text-blue-600">
-            Blog
-          </NavLink>
         </nav>
         <div className="flex items-center gap-4">
           <Search className="w-5 h-5 cursor-pointer" />

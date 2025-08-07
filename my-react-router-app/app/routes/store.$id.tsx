@@ -2,11 +2,11 @@ import { useLoaderData } from "react-router";
 import { getProductsById } from "~/data/products";
 
 export async function loader({ params }: any) {
-  console.log("Here the data", params);
-  return getProductsById(params.productId);
+  console.log("Here the ddsfs", params);
+  return getProductsById(params.id);
 }
 
-export default function ProductDetail() {
+export default function Id() {
   const product = useLoaderData() as {
     id: number;
     title: string;
@@ -16,7 +16,10 @@ export default function ProductDetail() {
     images: string[];
   };
 
+  console.log("PRODUCT---->>>", product);
+
   return (
+    
     <div className="p-8 flex gap-8">
       <img
         src={product.thumbnail}
