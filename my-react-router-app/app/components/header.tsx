@@ -1,4 +1,7 @@
-import { Search, ShoppingCart, User } from "lucide-react";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import SearchIcon from "@mui/icons-material/Search";
+import PersonIcon from "@mui/icons-material/Person";
+
 import { Link, NavLink } from "react-router";
 
 export default function Header() {
@@ -26,10 +29,10 @@ export default function Header() {
           </NavLink>
         </nav>
         <div className="flex items-center gap-4">
-          <Search className="w-5 h-5 cursor-pointer" />
-          <User className="w-5 h-5 cursor-pointer" />
+          <SearchIcon className="w-5 h-5 cursor-pointer" />
+          <PersonIcon className="w-5 h-5 cursor-pointer" />
           <Link to="/bag">
-            <ShoppingCart className="w-5 h-5 cursor-pointer" />
+            <ShoppingCartIcon />
           </Link>
         </div>
       </div>
