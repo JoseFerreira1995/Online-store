@@ -1,13 +1,19 @@
-import { Link, useLoaderData } from "react-router";
-import ProductPagination from "~/components/productPagination";
+import Pagination from "@mui/material/Pagination";
+import { number } from "framer-motion";
+import { Link, useLoaderData, useSearchParams } from "react-router";
+
 import { getProducts } from "~/data/products";
 
-export async function loader() {
-  return getProducts();
+export async function loader({ request }: { request: Request }) {
+  const url = new URL(request.url);
+  const page = parseInt(url.searchParams.get("page") || "1", 10);
+  const data = await getProducts(page, 10);
+
+  return { ...data, page };
 }
 
 export default function Store() {
-  const { products, total } = useLoaderData() as {
+  const { products, total, limit, page } = useLoaderData() as {
     products: {
       id: number;
       title: string;
@@ -15,6 +21,16 @@ export default function Store() {
       thumbnail: string;
     }[];
     total: number;
+    limit: number;
+    page: number;
+  };
+
+  const totalNumberOfPages = Math.ceil(total / limit);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const handlePageChange = ({}, newPage: number) => {
+    searchParams.set("page", newPage.toString());
+    setSearchParams(searchParams);
   };
 
   return (
@@ -45,8 +61,13 @@ export default function Store() {
           <p>There is no products</p>
         )}
       </div>
+
       <div>
-        <ProductPagination />
+        <Pagination
+          count={totalNumberOfPages}
+          page={page}
+          onChange={handlePageChange}
+        />
       </div>
     </>
   );

@@ -28,7 +28,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Search className="w-5 h-5 cursor-pointer" />
           <User className="w-5 h-5 cursor-pointer" />
-          <Link to="/cart">
+          <Link to="/bag">
             <ShoppingCart className="w-5 h-5 cursor-pointer" />
           </Link>
         </div>

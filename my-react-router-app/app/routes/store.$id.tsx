@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router";
+import Button from "@mui/joy/Button";
+import { Link, useLoaderData } from "react-router";
 import { getProductsById } from "~/data/products";
 
 export async function loader({ params }: any) {
-  console.log("Here the ddsfs", params);
   return getProductsById(params.id);
 }
 
@@ -19,7 +19,6 @@ export default function Id() {
   console.log("PRODUCT---->>>", product);
 
   return (
-    
     <div className="p-8 flex gap-8">
       <img
         src={product.thumbnail}
@@ -29,7 +28,12 @@ export default function Id() {
       <div>
         <h1 className="text-3xl font-bold">{product.title}</h1>
         <p className="text-xl mb-4">${product.price}</p>
-        <button className="bg-black text-white px-4 py-2">Add to Cart</button>
+        <div>
+          <Button color="neutral" loading={false} variant="solid">
+            Add to Cart
+          </Button>
+        </div>
+
         <p className="mt-4 text-gray-700 text-sm">{product.description}</p>
       </div>
     </div>
