@@ -1,12 +1,19 @@
 const BASE_URL = "https://dummyjson.com/products";
 
 // Todo: error handling
-export const getProducts = async (page: number, limit: number) => {
-  const res = await fetch(
-    `${BASE_URL}?limit=${limit}&skip=${page}`
-  );
-  const data = await res.json();
-  return data;
+export const getProducts = async (
+  page: number,
+  limit: number,
+  sortBy?: string,
+  order?: "asc" | "desc"
+) => {
+  let res = `${BASE_URL}?limit=${limit}&skip=${page}`;
+
+  if (sortBy && order) {
+    res += `&sortBy=${sortBy}&order=${order}`;
+  }
+  const data = await fetch(res)
+  return data.json();
 };
 
 export const getProductsById = async (id: string) => {

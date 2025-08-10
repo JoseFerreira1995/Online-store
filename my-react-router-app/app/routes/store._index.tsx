@@ -1,15 +1,18 @@
 import Pagination from "@mui/material/Pagination";
 import { number } from "framer-motion";
 import { Link, useLoaderData, useSearchParams } from "react-router";
+import  SortAccordion  from "~/components/sortAccordion";
 
 import { getProducts } from "~/data/products";
 
 export async function loader({ request }: { request: Request }) {
   const url = new URL(request.url);
   const page = parseInt(url.searchParams.get("page") || "1", 10);
-  const data = await getProducts(page, 10);
+  const sortBy = url.searchParams.get("sortBy") || undefined;
+  const order = url.searchParams.get("order") as "asc" | "desc" | null;
+  const data = await getProducts(page, 10, sortBy, order || undefined);
 
-  return { ...data, page };
+  return { ...data, page, sortBy, order };
 }
 
 export default function Store() {
@@ -36,6 +39,7 @@ export default function Store() {
   return (
     <>
       <div>
+        <SortAccordion />
         <h2>
           Showing {products.length} of {total}
         </h2>
