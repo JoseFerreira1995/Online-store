@@ -36,6 +36,8 @@ npm install
 yarn install
 ```
 
+```in case of error relater to imports from Material UI Icon just add the following command: npm install @mui/icons-material or npm install @mui/icons-material @mui/material @emotion/styled @emotion/react ```
+
 3. Run the development server:
 
 ```bash
