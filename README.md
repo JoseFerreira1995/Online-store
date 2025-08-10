@@ -1,1 +1,64 @@
+
 # LTP-Online-store
+
+## Description
+LTP-Online-store is a modern React-based eCommerce web application built with Vite, React Router, Tailwind CSS, and TypeScript. It provides a clean, responsive UI to browse and shop quality products easily.
+
+## Features
+- Product listing and details
+- Responsive design with Tailwind CSS
+- React Router for client-side navigation
+- Testing with Vitest and React Testing Library
+- TypeScript for type safety
+
+## Technologies
+- React
+- Vite
+- React Router
+- Tailwind CSS
+- TypeScript
+
+## Installation and Setup
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/LTP-Online-store.git
+cd LTP-Online-store
+cd my-react-router-app
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+## Project Structure
+
+- `app/components` - React components (e.g., Footer, Header)
+- `app/routes` - React Router routes
+- `public` - Static assets like images and icons
+- `vite.config.ts` - Vite build and dev server configuration
+- `tailwind.config.js` - Tailwind CSS setup and customizations
+- `package.json` - Project metadata and scripts
+
+## Contributing
+Feel free to open issues or submit pull requests for improvements or bug fixes.
+
+## License
+This project is licensed under the MIT License.
+
+---
+
+© 2025 LTP-Online-store
