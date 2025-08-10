@@ -16,22 +16,21 @@ export async function action({ request }: any) {
 
 export default function Bag() {
   const cartItems = useLoaderData<typeof loader>();
-  // const [cartItems, setCartItems] = useState(initialCart);
+
 
   const hasItems = cartItems.length > 0;
 
-  // const handleIncrement = (id: number) => {
-  //   incrementProductCart(id); // update cart data
-  //   setCartItems(getCart()); // refresh state from data layer
-  // };
 
-  // const handleRemove = (id: number) => {
-  //   removeFromCart(id); // update data layer
-  //   setCartItems(getCart()); // sync local state
-  // };
 
   return (
-    <Box sx={{ display: "flex", gap: 4, p: 4 }}>
+    <Box sx={{
+      display: "flex",
+      flexDirection: { xs: "column", sm: "row" },
+      gap: 4,
+      p: { xs: 2, sm: 4 },
+      maxWidth: 1200,
+      mx: "auto",
+    }}>
       <Box sx={{ flex: 2 }}>
         {hasItems ? (
           cartItems.map((item) => (
@@ -39,6 +38,7 @@ export default function Bag() {
               key={item.id}
               sx={{
                 display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
                 alignItems: "center",
                 gap: 2,
                 p: 2,
@@ -51,13 +51,27 @@ export default function Bag() {
                   height: 100,
                   bgcolor: "grey.200",
                   borderRadius: 1,
+                  flexShrink: 0,
                 }}
               />
-              <Box sx={{ flex: 1 }}>
+              <Box sx={{
+                  flex: 1,
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  width: "100%",
+                  textAlign: { xs: "center", sm: "left" },
+                }}>
                 <Typography variant="subtitle1">{item.title}</Typography>
                 <Typography>${item.price}</Typography>
               </Box>
-              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <Box sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  justifyContent: { xs: "center", sm: "flex-start" },
+                  mt: { xs: 1, sm: 0 },
+                }}>
                 <Typography>{item.quantity}</Typography>
                 <Button variant="outlined">+</Button>
               </Box>
@@ -75,7 +89,7 @@ export default function Bag() {
             color="text.secondary"
             sx={{ textAlign: "center", mt: 10 }}
           >
-            🛒 Your cart is emptier than my fridge at the end of the month!
+           🛒 Your cart is currently enjoying some peaceful emptiness. Ready to fill it up?
           </Typography>
         )}
       </Box>
