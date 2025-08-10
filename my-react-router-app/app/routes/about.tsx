@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 export async function loader() {
   return {

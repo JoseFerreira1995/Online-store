@@ -19,8 +19,6 @@ export default function Header() {
         <Link to="/" className="text-xl font-bold tracking-wide uppercase">
           THE ONLINE STORE
         </Link>
-
-        {/* Desktop nav */}
         <nav className="hidden md:flex gap-6 text-sm flex-grow justify-center">
           <NavLink
             to="/"
@@ -46,15 +44,12 @@ export default function Header() {
           </NavLink>
         </nav>
 
-        {/* Icons + Hamburger */}
         <div className="flex items-center gap-4">
           <SearchIcon className="w-5 h-5 cursor-pointer" />
           <PersonIcon className="w-5 h-5 cursor-pointer" />
           <Link to="/bag">
             <ShoppingCartIcon />
           </Link>
-
-          {/* Hamburger button - only visible on mobile */}
           <button
             onClick={toggleMobileMenu}
             className="md:hidden ml-4 p-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
@@ -68,8 +63,6 @@ export default function Header() {
           </button>
         </div>
       </div>
-
-      {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
         <nav className="md:hidden bg-white border-t border-gray-200">
           <ul className="flex flex-col px-4 py-2 gap-2">

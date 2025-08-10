@@ -1,8 +1,8 @@
 import { Box, Typography, Button, IconButton, Paper } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { getCart, removeFromCart } from "~/data/products";
-import { Form, redirect, useLoaderData } from "react-router";
-import { useState } from "react";
+import { Form, useLoaderData } from "react-router";
+
 
 export async function loader({ request }: any) {
   return getCart();

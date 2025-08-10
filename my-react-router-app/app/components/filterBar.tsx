@@ -23,17 +23,10 @@ export default function FilterBar({ productsLength, total }: FilterBarProps) {
     box-border
       "
     >
-      {/* Left side: Sort Button and Header */}
-      
-        <div
-         
-          
-        >
-          <SortAccordion />
-        </div>
-    
+      <div>
+        <SortAccordion />
+      </div>
 
-      {/* Right side: Showing message */}
       <p
         className="
          flex-shrink-0
