@@ -1,17 +1,14 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import { Link, useSearchParams } from "react-router";
-import { Checkbox, FormControlLabel, ListItem } from "@mui/material";
+import { useSearchParams } from "react-router";
+import { Checkbox} from "@mui/material";
 
+interface SideBarProps {
+  categories: string[];
+  selectedCategory?: string;
+}
 export default function SideBar({
   categories,
   selectedCategory,
-}: {
-  categories: string[];
-  selectedCategory?: string;
-}) {
+}: SideBarProps) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const toggleCategory = (category: string) => {
@@ -27,7 +24,7 @@ export default function SideBar({
     if (updated.length > 0) {
       searchParams.set("category", updated.join(","));
     } else {
-      searchParams.delete("category"); // Show all products again
+      searchParams.delete("category");
     }
 
     setSearchParams(searchParams);

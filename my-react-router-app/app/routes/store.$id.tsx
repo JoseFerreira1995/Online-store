@@ -2,11 +2,24 @@ import Button from "@mui/joy/Button";
 import { Form, Link, redirect, useLoaderData } from "react-router";
 import { addToCart, getProductsById } from "~/data/products";
 
-export async function loader({ params }: any) {
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  thumbnail: string;
+  images: string[];
+}
+
+export async function loader({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Product> {
   return getProductsById(params.id);
 }
 
-export async function action({ request, params }: any) {
+export async function action({ params }: { params: { id: string } }) {
   const product = await getProductsById(params.id);
   addToCart(product);
   return redirect("/store");
@@ -36,17 +49,22 @@ export default function Id() {
           <Form method="post">
             <input type="hidden" name="title" value={product.title} />
             <input type="hidden" name="price" value={product.price} />
-            <Button type="submit" color="neutral" variant="solid"     sx={{
-              width: 400,
-              maxWidth: "100%",
-              height: 36,
-              paddingTop: 1,
-              paddingBottom: 1,
-              paddingLeft: 2,
-              paddingRight: 2,
-              opacity: 1,
-              borderRadius: 1,
-            }}>
+            <Button
+              type="submit"
+              color="neutral"
+              variant="solid"
+              sx={{
+                width: 400,
+                maxWidth: "100%",
+                height: 36,
+                paddingTop: 1,
+                paddingBottom: 1,
+                paddingLeft: 2,
+                paddingRight: 2,
+                opacity: 1,
+                borderRadius: 1,
+              }}
+            >
               Add to Cart
             </Button>
           </Form>

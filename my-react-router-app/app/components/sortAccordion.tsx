@@ -1,10 +1,4 @@
 import { Button, Menu, MenuItem } from "@mui/material";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
 import { useState } from "react";
 import { useSearchParams } from "react-router";
 
@@ -27,7 +21,7 @@ export default function SortAccordion() {
   const handleSortingChange = (field: string, dir: string) => {
     searchParams.set("sortBy", field);
     searchParams.set("order", dir);
-    searchParams.set("page", "1"); // reset to page 1 when sorting changes
+    searchParams.set("page", "1"); 
     setSearchParams(searchParams);
     handleClose();
   };
