@@ -17,7 +17,6 @@ LTP-Online-store is a modern React-based eCommerce web application built with Vi
 - React Router
 - Tailwind CSS
 - TypeScript
-- Vitest
 
 ## Installation and Setup
 
