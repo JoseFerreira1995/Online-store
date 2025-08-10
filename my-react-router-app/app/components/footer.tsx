@@ -2,7 +2,7 @@ import { Computer, Github, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 border-t bottom-0 mt-12">
+    <footer className="w-full bg-gray-100 border-t bottom-0 mt-12">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-sm text-gray-700">
       
       {/* Brand */}

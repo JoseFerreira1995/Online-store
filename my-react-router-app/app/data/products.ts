@@ -30,22 +30,49 @@ export const removeFromCart = (id: number) => {
 };
 
 // Todo: error handling
-export const getProducts = async (
-  page: number,
-  limit: number,
+export async function getProducts(
+  page = 1,
+  limit = 10,
   sortBy?: string,
   order?: "asc" | "desc"
-) => {
-  let res = `${BASE_URL}?limit=${limit}&skip=${page}`;
-
-  if (sortBy && order) {
-    res += `&sortBy=${sortBy}&order=${order}`;
-  }
-  const data = await fetch(res);
-  return data.json();
-};
+) {
+  const skip = (page - 1) * limit;
+  const url = new URL(BASE_URL);
+  url.searchParams.set("limit", String(limit));
+  url.searchParams.set("skip", String(skip));
+  if (sortBy) url.searchParams.set("sortBy", sortBy);
+  if (order) url.searchParams.set("order", order);
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error("Failed to fetch products");
+  return res.json(); // {products, total, skip, limit}
+}
 
 export const getProductsById = async (id: string) => {
   const res = await fetch(`${BASE_URL}/${id}`);
   return res.json();
 };
+
+export async function getCategories(): Promise<string[]> {
+  const res = await fetch(`${BASE_URL}/category-list`);
+  if (!res.ok) throw new Error("Failed to fetch categories");
+  return res.json();
+}
+
+export async function getProductsByCategory(
+  category: string,
+  page = 1,
+  limit = 10,
+  sortBy?: string,
+  order?: "asc" | "desc"
+) {
+  const skip = (page - 1) * limit;
+  // DummyJSON supports ?limit/skip on category endpoint
+  const url = new URL(`https://dummyjson.com/products/category/${category}`);
+  url.searchParams.set("limit", String(limit));
+  url.searchParams.set("skip", String(skip));
+  if (sortBy) url.searchParams.set("sortBy", sortBy);
+  if (order) url.searchParams.set("order", order);
+  const res = await fetch(url.toString());
+  if (!res.ok) throw new Error("Failed to fetch products by category");
+  return res.json(); // {products, total, skip, limit}
+}
