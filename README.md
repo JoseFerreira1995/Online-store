@@ -1,8 +1,8 @@
 
-# LTP-Online-store
+# Online-store
 
 ## Description
-LTP-Online-store is a modern React-based eCommerce web application built with Vite, React Router, Tailwind CSS, and TypeScript. It provides a clean, responsive UI to browse and shop quality products easily.
+Online-store is a modern React-based eCommerce web application built with Vite, React Router, Tailwind CSS, and TypeScript. It provides a clean, responsive UI to browse and shop quality products easily.
 
 ## Features
 - Product listing and details
@@ -23,8 +23,8 @@ LTP-Online-store is a modern React-based eCommerce web application built with Vi
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/LTP-Online-store.git
-cd LTP-Online-store
+git clone https://github.com/your-username/Online-store.git
+cd Online-store
 cd my-react-router-app
 ```
 
