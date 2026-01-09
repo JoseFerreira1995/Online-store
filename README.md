@@ -2,7 +2,17 @@
 # Online-store
 
 ## Description
+
+
+
 Online-store is a modern React-based eCommerce web application built with Vite, React Router, Tailwind CSS, and TypeScript. It provides a clean, responsive UI to browse and shop quality products easily.
+
+
+
+https://github.com/user-attachments/assets/d5d595ef-8031-4059-8351-4aee2f9cacba
+
+
+
 
 ## Features
 - Product listing and details
@@ -24,11 +34,14 @@ Online-store is a modern React-based eCommerce web application built with Vite, 
 
 ```bash
 git clone https://github.com/your-username/Online-store.git
-cd Online-store
-cd my-react-router-app
 ```
 
 2. Install dependencies:
+
+```bash
+cd Online-store
+cd my-react-router-app
+```
 
 ```bash
 npm install
