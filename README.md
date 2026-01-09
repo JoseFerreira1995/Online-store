@@ -1,4 +1,5 @@
 
+
 # Online-store
 
 ## Description
@@ -9,7 +10,11 @@ Online-store is a modern React-based eCommerce web application built with Vite, 
 
 
 
-https://github.com/user-attachments/assets/d5d595ef-8031-4059-8351-4aee2f9cacba
+
+https://github.com/user-attachments/assets/45e1e64e-859c-4ae0-8db8-8f0143fa3112
+
+
+
 
 
 
